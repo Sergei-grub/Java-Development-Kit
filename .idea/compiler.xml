@@ -7,11 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="untitled" />
         <module name="JDK_finalTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JavaDevelopmentKitFinalTest" target="21" />
+      <module name="Lesson_1" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

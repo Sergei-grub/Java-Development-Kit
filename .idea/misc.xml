@@ -7,11 +7,14 @@
         <option value="$PROJECT_DIR$/JavaDevelopmentKitFinalTest/pom.xml" />
         <option value="$PROJECT_DIR$/Lesson_1/untitled/pom.xml" />
         <option value="$PROJECT_DIR$/JDK_finalTest/pom.xml" />
+        <option value="$PROJECT_DIR$/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson_1/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/JavaDevelopmentKitFinalTest/pom.xml" />
+        <option value="$PROJECT_DIR$/Lesson_1/pom.xml" />
       </set>
     </option>
   </component>
