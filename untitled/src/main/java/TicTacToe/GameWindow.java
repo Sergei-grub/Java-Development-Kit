@@ -5,14 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameWindow extends JFrame {
+class GameWindow extends JFrame {
     private static final int WINDOW_HEIGHT = 555;
     private static final int WINDOW_WIDTH = 507;
-    private static final int WINDOW_POSX = 800;
-    private static final int WINDOW_POSY = 300;
+    private static final int WINDOW_POSX = 500;
+    private static final int WINDOW_POSY = 100;
+
     JButton btnStart = new JButton("New Game");
     JButton btnExit = new JButton("Exit");
-    Map map;
+    MapField map;
     SettingsWindow settings;
 
     GameWindow() {
@@ -22,9 +23,8 @@ public class GameWindow extends JFrame {
         setTitle("TicTacToe");
         setResizable(false);
 
-        map = new Map();
+        map = new MapField();
         settings = new SettingsWindow(this);
-
         btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,16 +38,7 @@ public class GameWindow extends JFrame {
             }
         });
 
-        // Запуск без окна настроек.
-
-//        btnStart.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                startNewGame(0, 5, 5, 5);
-//            }
-//        });
-
-        JPanel panBottom = new JPanel(new GridLayout(1, 3));
+        JPanel panBottom = new JPanel(new GridLayout(1, 2));
         panBottom.add(btnStart);
         panBottom.add(btnExit);
         add(panBottom, BorderLayout.SOUTH);
@@ -55,7 +46,7 @@ public class GameWindow extends JFrame {
         setVisible(true);
     }
 
-    public void startNewGame(int mode, int fSzX, int fSzY, int wLen) {
+    void startNewGame(int mode, int fSzX, int fSzY, int wLen) {
         map.startNewGame(mode, fSzX, fSzY, wLen);
     }
 }

@@ -1,4 +1,4 @@
-package ChatWindow;
+package gb.example.ChatWindow;
 
 
 import javax.swing.*;

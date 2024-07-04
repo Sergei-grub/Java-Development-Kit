@@ -15,11 +15,10 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/JavaDevelopmentKitFinalTest/pom.xml" />
-        <option value="$PROJECT_DIR$/Lesson_1/pom.xml" />
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
