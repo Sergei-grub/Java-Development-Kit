@@ -178,46 +178,48 @@ public class Map extends JPanel {
 
     private boolean checkWin(int symbol) {
         // Проверка по горизонталям
-        int countX = 0;
-        for (int i = 0; i < field.length; i++){
-            for (int j = 0; j < field.length; j++){
-                if (field[i][j] == symbol) countX++;
-                System.out.println("count = " + countX);
-                int fieldLength = field.length;
-                System.out.println("fieldLength = " + fieldLength);
-                if (countX == field.length) return true;
+        int count = 0;
+        int temp;
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field.length; j++) {
+                if (field[i][j] == symbol) {
+                    temp = i;
+                    if (temp == i) {
+                        System.out.println("temp = " + temp);
+                        System.out.println("i = " + i);
+                        System.out.println("count = " + count);
+                        count++;
+                    }
+                    if (count == field.length) return true;
+                }
             }
-        }
-
-        // Проверка по диагоналям
-//        if (field[0][0] == symbol && field[1][1] == symbol && field[2][2] == symbol) return true;
-//        if (field[0][2] == symbol && field[1][1] == symbol && field[2][0] == symbol) return true;
-        int countXY = 0;
-        for (int i = 0; i < field.length; i++){
-            for (int j = 0; j < field.length; j++){
-                if (field[i][j] == symbol) countXY++;
-                System.out.println("count = " + countXY);
-                int fieldLength = field.length;
-                System.out.println("fieldLength = " + fieldLength);
-                if (countXY == field.length) return true;
-            }
-        }
-        // Проверка по трем вертикалям
+            // Проверка по трем вертикалям
 //        if (field[0][0] == symbol && field[1][0] == symbol && field[2][0] == symbol) return true;
 //        if (field[0][1] == symbol && field[1][1] == symbol && field[2][1] == symbol) return true;
 //        if (field[0][2] == symbol && field[1][2] == symbol && field[2][2] == symbol) return true;
-        int countY = 0;
-        for (int i = 0; i < field.length; i++){
-            for (int j = 0; j < field.length; j++){
-                if (field[i][j] == symbol) countY++;
-                System.out.println("count = " + countY);
-                int fieldLength = field.length;
-                System.out.println("fieldLength = " + fieldLength);
-                if (countY == field.length) return true;
-            }
+
+//        for (int i = 0; i < field.length; i++){
+//            int countY = 0;
+//            for (int j = 0; j < field.length; j++){
+//                if (field[i][j] == symbol) countY++;
+//                if (countY == field.length) return true;
+//            }
+//        }
+
+            // Проверка по диагоналям
+//        if (field[0][0] == symbol && field[1][1] == symbol && field[2][2] == symbol) return true;
+//        if (field[0][2] == symbol && field[1][1] == symbol && field[2][0] == symbol) return true;
+
+//        int countXY = 0;
+//        for (int i = 0; i < field.length; i++){
+//            for (int j = 0; j < field.length; j++){
+//                if (field[i][j] == symbol) countXY++;
+//                if (countXY == field.length) return true;
+//            }
+//        }
+
         }
         return false;
-
     }
 
     private boolean isMapFull() {
