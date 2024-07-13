@@ -1,9 +1,15 @@
-package CircleFrame;
+package BrickFrame.CircleFrame.circles;
+
+import BrickFrame.CircleFrame.common.CanvasRepaintListener;
+import CircleFrame.Background;
+import CircleFrame.Ball;
+import CircleFrame.MainCanvas;
+import CircleFrame.Sprite;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements CanvasRepaintListener {
     private static final int POS_X = 400;
     private static final int POS_Y = 200;
     private static final int WINDOW_WIDTH = 800;
@@ -16,8 +22,8 @@ public class MainWindow extends JFrame {
         setBounds(POS_X, POS_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
         setTitle("Circles");
 
-        MainCanvas canvas = new MainCanvas(this);
-        add(canvas);
+//        CanvasRepaintListener canvas = new MainCanvas(this, controller);
+//        add(canvas);
 
         setVisible(true);
 
@@ -30,6 +36,11 @@ public class MainWindow extends JFrame {
     public void onDrawFrame(MainCanvas canvas, Graphics g, float deltaTime) {
         update(canvas, deltaTime);
         render(canvas, g);
+
+    }
+
+    @Override
+    public void onDrawFrame(BrickFrame.CircleFrame.common.MainCanvas mainCanvas, Graphics g, float deltaTime) {
 
     }
 

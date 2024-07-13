@@ -1,4 +1,7 @@
-package CircleFrame;
+package BrickFrame.CircleFrame.circles;
+
+import BrickFrame.CircleFrame.common.MainCanvas;
+import BrickFrame.CircleFrame.common.Sprite;
 
 import java.awt.*;
 import java.util.Random;

@@ -1,20 +1,18 @@
-package CircleFrame;
+package BrickFrame.CircleFrame.common;
+
+import BrickFrame.CircleFrame.bricks.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainCanvas extends JPanel {
-    private final MainWindow controller;
+    private final CanvasRepaintListener controller;
     private long lastFrameTime;
 
-    public MainCanvas(MainWindow controller) {
+    public MainCanvas(CanvasRepaintListener controller) {
         setBackground(new Color(119, 140, 157));
         this.controller = controller;
         lastFrameTime = System.nanoTime();
-    }
-
-    public MainCanvas(BrickFrame.CircleFrame.circles.MainWindow mainWindow, MainWindow controller) {
-        this.controller = controller;
     }
 
     @Override
