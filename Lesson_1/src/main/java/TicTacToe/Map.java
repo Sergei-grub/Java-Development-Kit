@@ -21,6 +21,7 @@ public class Map extends JPanel {
     private final int AI_DOT = 2;
     private int fieldSizeX = 5;
     private int fieldSizeY = 5;
+    private int winLength = 5;
     private char[][] field;
     private int panelWidth;
     private int panelHeight;
@@ -56,6 +57,7 @@ public class Map extends JPanel {
         if (!isValidCell(cellX, cellY) || !isEmptyCell(cellX, cellY)) {
             return;
         }
+
         field[cellY][cellX] = HUMAN_DOT;
         repaint();
         if (checkEndGame(HUMAN_DOT, STATE_WIN_HUMAN)) {
@@ -176,51 +178,48 @@ public class Map extends JPanel {
         field[y][x] = AI_DOT;
     }
 
-    private boolean checkWin(int symbol) {
-        // Проверка по горизонталям
-        int count = 0;
-        int temp;
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field.length; j++) {
-                if (field[i][j] == symbol) {
-                    temp = i;
-                    if (temp == i) {
-                        System.out.println("temp = " + temp);
-                        System.out.println("i = " + i);
-                        System.out.println("count = " + count);
-                        count++;
-                    }
-                    if (count == field.length) return true;
-                }
+    private boolean checkLine (int x, int y, int vx, int vy, int len, int c){
+        final int far_x = x + (len - 1) * vx;
+        final int far_y = y + (len - 1) * vy;
+        System.out.println("far_x = " + far_x);
+        System.out.println("far_y = " + far_y);
+        if (!isValidCell(far_x, far_y)) return false;
+        for (int i = 0; i < len; i++) {
+            if (field[y + i * vy][x + i * vx] != c) return false;
+            System.out.println("c = " + c);
+            int tempI = y + i * vy;
+            System.out.println("y + i * vy = " + tempI);
+            int tempJ = y + i * vy;
+            System.out.println("x + i * vx = " + tempJ);
+
             }
-            // Проверка по трем вертикалям
-//        if (field[0][0] == symbol && field[1][0] == symbol && field[2][0] == symbol) return true;
-//        if (field[0][1] == symbol && field[1][1] == symbol && field[2][1] == symbol) return true;
-//        if (field[0][2] == symbol && field[1][2] == symbol && field[2][2] == symbol) return true;
+        return true;
+    }
 
-//        for (int i = 0; i < field.length; i++){
-//            int countY = 0;
-//            for (int j = 0; j < field.length; j++){
-//                if (field[i][j] == symbol) countY++;
-//                if (countY == field.length) return true;
-//            }
-//        }
-
-            // Проверка по диагоналям
-//        if (field[0][0] == symbol && field[1][1] == symbol && field[2][2] == symbol) return true;
-//        if (field[0][2] == symbol && field[1][1] == symbol && field[2][0] == symbol) return true;
-
-//        int countXY = 0;
-//        for (int i = 0; i < field.length; i++){
-//            for (int j = 0; j < field.length; j++){
-//                if (field[i][j] == symbol) countXY++;
-//                if (countXY == field.length) return true;
-//            }
-//        }
-
+    private boolean checkWin(int symbol) {
+        for (int i = 0; i < fieldSizeX; i++) {
+            for (int j = 0; j < fieldSizeY; j++) {
+                if (checkLine(i, j, 1, 0, winLength, symbol)) return true;
+                if (checkLine(i, j, 1, 1, winLength, symbol)) return true;
+                if (checkLine(i, j, 0, 1, winLength, symbol)) return true;
+                if (checkLine(i, j, 1, -1, winLength, symbol)) return true;
+            }
         }
         return false;
     }
+    // Проверка по горизонталям
+        // Проверка по трем вертикалям
+//        if (field[0][0] == symbol && field[1][0] == symbol && field[2][0] == symbol) return true;
+//        if (field[0][1] == symbol && field[1][1] == symbol && field[2][1] == symbol) return true;
+//        if (field[0][2] == symbol && field[1][2] == symbol && field[2][2] == symbol) return true;
+//        }
+
+        // Проверка по диагоналям
+//        if (field[0][0] == symbol && field[1][1] == symbol && field[2][2] == symbol) return true;
+//        if (field[0][2] == symbol && field[1][1] == symbol && field[2][0] == symbol) return true;
+//        }
+
+
 
     private boolean isMapFull() {
         for (int i = 0; i < fieldSizeY; i++) {

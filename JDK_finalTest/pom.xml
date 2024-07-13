@@ -30,6 +30,16 @@
 			<version>2.27.0</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>cn.bingoogolapple</groupId>
+            <artifactId>bga-flowlayout</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+		<dependency>
+			<groupId>cn.bingoogolapple</groupId>
+			<artifactId>bga-flowlayout</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 
 
 	</dependencies>
