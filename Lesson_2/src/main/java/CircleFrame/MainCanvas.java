@@ -17,11 +17,11 @@ public class MainCanvas extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         try {
-            Thread.sleep(16);
+            Thread.sleep(10);
         } catch (InterruptedException e){
             throw new RuntimeException(e);
         }
-        float deltaTime = (System.nanoTime() - lastFrameTime) * 0.000000001f;
+        float deltaTime = (System.nanoTime() - lastFrameTime) * 0.000000003f;
         controller.onDrawFrame(this, g, deltaTime);
         lastFrameTime = System.nanoTime();
         repaint();
