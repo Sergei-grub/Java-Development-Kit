@@ -2,6 +2,9 @@ package CircleFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 
 public class MainWindow extends JFrame {
     private static final int POS_X = 400;
@@ -17,6 +20,8 @@ public class MainWindow extends JFrame {
         setTitle("Circles");
 
         MainCanvas canvas = new MainCanvas(this);
+
+
         add(canvas);
 
         setVisible(true);

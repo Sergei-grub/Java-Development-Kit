@@ -8,8 +8,12 @@ import CircleFrame.Sprite;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class MainWindow extends JFrame implements CanvasRepaintListener {
+public class MainWindow extends JFrame implements
+        CanvasRepaintListener, MouseListener {
     private static final int POS_X = 400;
     private static final int POS_Y = 200;
     private static final int WINDOW_WIDTH = 800;
@@ -22,8 +26,21 @@ public class MainWindow extends JFrame implements CanvasRepaintListener {
         setBounds(POS_X, POS_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
         setTitle("Circles");
 
-//        CanvasRepaintListener canvas = new MainCanvas(this, controller);
-//        add(canvas);
+        CanvasRepaintListener canvas = new CanvasRepaintListener() {
+            @Override
+            public void onDrawFrame(MainCanvas canvas, Graphics g, float deltaTime) {
+
+            }
+
+            @Override
+            public void onDrawFrame(BrickFrame.CircleFrame.common.MainCanvas mainCanvas, Graphics g, float deltaTime) {
+
+            }
+        };
+        add((Component) canvas);
+        ((Component) canvas).addMouseListener(this);
+
+
 
         setVisible(true);
 
@@ -60,5 +77,31 @@ public class MainWindow extends JFrame implements CanvasRepaintListener {
 
     public static void main(String[] args) {
         new MainWindow();
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        System.out.println("Clicked");
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
